@@ -1,0 +1,153 @@
+//1. 왼쪽에서 오른쪽으로 0.1초 간격
+//2. 오른쪽에서 왼쪽으로  0.1초 간격
+//3. 끝에서 가로 0.1초 간격
+//4. 가에서 끝으로 0.1초 간격
+//5. 10개 동시에 깜빡
+
+
+void setup(){
+  pinMode(4, OUTPUT);
+  pinMode(5, OUTPUT);
+  pinMode(6, OUTPUT);
+  pinMode(7, OUTPUT);
+  pinMode(8, OUTPUT);
+  pinMode(9, OUTPUT);
+  pinMode(10, OUTPUT);
+  pinMode(11, OUTPUT);
+  pinMode(12, OUTPUT);
+  pinMode(13, OUTPUT);
+  pinMode(22, INPUT);
+  pinMode(24, INPUT);
+  pinMode(26, INPUT);
+  pinMode(28, INPUT);
+  pinMode(30, INPUT);
+
+}
+int a,b,c,d,e;
+void loop(){
+  // 1번 왼쪽에서 오른쪽으로 0.1초 간격
+  a= digitalRead(22);
+  if(a==HIGH){
+  for(int i=4;i<=13;i++){
+    digitalWrite(i,HIGH);
+    delay(100);
+    digitalWrite(i,LOW);
+    delay(100);
+    }
+   
+  }
+}
+
+   //2번 오른쪽에서 왼쪽으로  0.1초 간격
+  b= digitalRead(24);
+  if(b==HIGH){
+ 
+  for(int i=13;i>=4;i--){
+    digitalWrite(i,HIGH);
+    delay(100);
+    digitalWrite(i,LOW);
+    delay(100);
+  }
+  }
+  //3번 끝에서 가로 0.1초 간격
+  c= digitalRead(26);
+  if(c==HIGH){
+
+    digitalWrite(4,HIGH);
+    digitalWrite(13,HIGH);
+    delay(100);
+    digitalWrite(4,LOW);
+    digitalWrite(13,LOW);
+    digitalWrite(5,HIGH);
+    digitalWrite(12,HIGH);
+    delay(100);
+    digitalWrite(5,LOW);
+    digitalWrite(12,LOW);
+    digitalWrite(6,HIGH);
+    digitalWrite(11,HIGH);
+    delay(100);
+    digitalWrite(6,LOW);
+    digitalWrite(11,LOW);
+    digitalWrite(7,HIGH);
+    digitalWrite(10,HIGH);
+    delay(100);
+    digitalWrite(7,LOW);
+    digitalWrite(10,LOW);
+    digitalWrite(8,HIGH);
+    digitalWrite(9,HIGH);
+    delay(100);
+    digitalWrite(8,LOW);
+    digitalWrite(9,LOW);
+ 
+  }
+  
+  //4번 가에서 끝으로 0.1초 간격
+   d= digitalRead(28);
+  if(d==HIGH){
+ 
+    digitalWrite(8,HIGH);
+    digitalWrite(9,HIGH);
+    delay(100);
+    digitalWrite(8,LOW);
+    digitalWrite(9,LOW);
+    digitalWrite(7,HIGH);
+    digitalWrite(10,HIGH);
+    delay(100);
+    digitalWrite(7,LOW);
+    digitalWrite(10,LOW);
+    digitalWrite(6,HIGH);
+    digitalWrite(11,HIGH);
+    delay(100);
+    digitalWrite(6,LOW);
+    digitalWrite(11,LOW);
+    digitalWrite(5,HIGH);
+    digitalWrite(12,HIGH);
+    delay(100);
+    digitalWrite(5,LOW);
+    digitalWrite(12,LOW);
+    digitalWrite(4,HIGH);
+    digitalWrite(13,HIGH);
+    delay(100);
+    digitalWrite(4,LOW);
+    digitalWrite(13,LOW);
+   
+  }
+  //5번 10개 동시에 깜빡
+  e= digitalRead(30);
+  if(e==HIGH){
+
+    for(int n=4;n<=13;n++){
+      digitalWrite(n,HIGH);
+    }
+    delay(1000);
+    for(int q=4;q<=13;q++){
+      digitalWrite(q,LOW);
+    }
+  }
+
+
+  int led = 13;     //led 라는 변수에 13 저장
+  int bt = 12;      // bt 라는 변수에 12 저장
+  itn state = 0;    // state 라는 변수에 0 저장
+
+  void setup90{
+    pinMode(led, OUTPUT);   //led는 출력으로 설정
+    pinMode(bt , INPUT);    // bt는 입력으로 설정
+  }
+
+  void loop(){
+    int value = digitalRead(bt);  //value 라는 변수에 bt의 입력값 저장
+    if(vlaue == HIGH){            //입력이 1일 경우에 if() 문 수행
+      if(state == 0){
+        state = 1;}               //state가 0이면 1로 변경
+     else if(state ==1){
+        state = 0;}               //state가 1이면 0으로 변경
+    }
+    if(state == 0){
+      digitalWrite(led, LOW);}    //state가 0이면 led 는 꺼짐
+    else if(state == 1){
+      digitalWrite(led , HIGH);}  //state가 1이면 led 는 꺼짐
+    }
+    
+  
+ 
